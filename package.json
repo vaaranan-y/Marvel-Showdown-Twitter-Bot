@@ -15,6 +15,7 @@
   "author": "Vaaranan Yogalingam",
   "license": "ISC",
   "dependencies": {
+    "marvel-comics-characters": "^1.1.1",
     "twit": "^2.2.11"
   }
 }
