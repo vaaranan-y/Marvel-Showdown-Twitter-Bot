@@ -24,8 +24,18 @@ var T = new Twit(config)
 // })
 
 // Relevant test post
+// var tweet = {
+// 	status: 'Marvel Shwodown Test Tweet 1'
+// }
+
+var names = require('marvel-comics-characters');
+var allNames = names.all;
+var randomName1 = names.random();
+var randomName2 = names.random();
+console.log("Today's Showdown: " + randomName1 + " vs. " + randomName2);
+
 var tweet = {
-	status: 'Marvel Shwodown Test Tweet 1'
+	status: "Today's Showdown: " + randomName1 + " vs. " + randomName2
 }
 
 T.post('statuses/update', tweet, tweeted);
