@@ -28,25 +28,34 @@ var T = new Twit(config)
 // 	status: 'Marvel Shwodown Test Tweet 1'
 // }
 
+var timeInterval = 1000*60*60*5;
+
 var names = require('marvel-comics-characters');
 var allNames = names.all;
 var randomName1 = names.random();
 var randomName2 = names.random();
 console.log("Today's Showdown: " + randomName1 + " vs. " + randomName2);
 
-var tweet = {
-	status: "Today's Showdown: " + randomName1 + " vs. " + randomName2
-}
+function tweetShowdown(){
+	var tweet = {
+		status: "Today's Showdown: " + randomName1 + " vs. " + randomName2
+	}
 
-T.post('statuses/update', tweet, tweeted);
+	T.post('statuses/update', tweet, tweeted);
 
-function tweeted(err, data, response){
-	if(err){
-		console.log(err);
-	} else{
-		console.log("SUCCESS");
+	function tweeted(err, data, response){
+		if(err){
+			console.log(err);
+		} else{
+			console.log("SUCCESS");
+		}
 	}
 }
+
+setInterval(tweetShowdown, timeInterval);
+
+
+
 
 // Test post
 // T.post('statuses/update', { status: 'hello world!' }, function(err, data, response) {
